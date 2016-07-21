@@ -167,6 +167,7 @@ bool who_is_big(NODE* n1,NODE* n2)
     return n1->content > n2->content;
 }
 
+//取得链表长度.
 int get_rise(NODE* head)
 {
     int sum = 0;
@@ -198,8 +199,6 @@ NODE* insert_sort(NODE* head,bool func( NODE* n1,NODE* n2))
     }
     return head;
 }
-
-
 
 //选择排序
 NODE* chooise_sort(NODE* head,bool func( NODE* n1,NODE* n2))
@@ -283,11 +282,11 @@ void quick_sort(int s[],int l,int r)
         
         s[i] = x;
         
-        cout << " | ";
-        for (int k = l; k <= r; k ++) {
-            cout  << s[k] << " | ";
-        }
-        cout <<endl;
+//        cout << " | ";
+//        for (int k = l; k <= r; k ++) {
+//            cout  << s[k] << " | ";
+//        }
+//        cout <<endl;
         
         quick_sort(s, l, i - 1);//递归调用
         quick_sort(s, i+1, r);
@@ -297,39 +296,68 @@ void quick_sort(int s[],int l,int r)
 
 
 int main(int argc, const char * argv[]) {
-    int hh[10] = {3,1,9,6,0,5,8,4,2,7};
-    NODE* head = create_new_list(hh,10);
-    show_list(head);
-
-    head =  reverse(head);
-    show_list(head);
-
-    NODE* xx = get_bit(head,3);
-    NODE* yy = get_bit(head,7);
-    swap(xx,yy);
-    show_list(head);
+//    int hh[10] = {3,1,9,6,0,5,8,4,2,7};
+//    NODE* head = create_new_list(hh,10);
+//    show_list(head);
+//
+//    head =  reverse(head);
+//    show_list(head);
+//
+//    NODE* xx = get_bit(head,3);
+//    NODE* yy = get_bit(head,7);
+//    swap(xx,yy);
+//    show_list(head);
+//    
+//    delete_node(yy,head);
+//    show_list(head);
+//    
+//    head = insert_front(head,yy,head);
+//    show_list(head);
+//
+//    head =  insert_sort(head,who_is_big);
+//    show_list(head);
+//    
+//    head =  chooise_sort(head,who_is_big);
+//    show_list(head);
+//    
+//    head = moo_sort(head,who_is_big);
+//    show_list(head);
+//    
+//    quick_sort(hh, 0, 9);
+//    for (int i =0; i < 10; i ++) {
+//        cout << hh[i] << endl;
+//     }
+//    
+//    cout << get_rise(head);
     
-    delete_node(yy,head);
-    show_list(head);
+    const char* str_c = "I am a student.\n";
+    char* str = new char(50);
+    strcpy(str, str_c);
+    char* headSpace[10] = {NULL};
+    int headSpaceNum = 0;
+    headSpace[0] = str ;
+    int l = strlen(str);
+    for (int i = l -1; i >= 0; i--) {
+        if (i == 0 or ( i - 1 >= 0 && str[i - 1] == ' ')) {
+            for (int j = i; j < l && *(str+j) != '\0'&& *(str+j) != '\n'  && *(str+j) != ' ' ; j++ ) {
+                printf("%c",str[j]);
+            }
+            printf("%c",' ');
+        }
+    }
+    printf("\n");
+//    printf("num %d\n", headSpaceNum);
+//    
+//    for (int i =9 ; i > -1; i--) {
+//        if (headSpace[i]) {
+//            printf(headSpace[i]);
+//        }
+//    }
     
-    head = insert_front(head,yy,head);
-    show_list(head);
-
-    head =  insert_sort(head,who_is_big);
-    show_list(head);
     
-    head =  chooise_sort(head,who_is_big);
-    show_list(head);
     
-    head = moo_sort(head,who_is_big);
-    show_list(head);
     
-    quick_sort(hh, 0, 9);
-    for (int i =0; i < 10; i ++) {
-        cout << hh[i] << endl;
-     }
     
-    cout << get_rise(head);
     
     return 0;
 }
