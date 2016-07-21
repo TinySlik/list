@@ -294,97 +294,42 @@ void quick_sort(int s[],int l,int r)
     }
 }
 
-void split(char* words[] , char fd[] , int size)
-{
-    
-//    char* words[20];
-    for (int i =0; i < 20; i++) {
-        words[i] = NULL;
-    }
-    char fd_copy[size];
-    strcpy(fd_copy, fd);
-    int i =0;
-    words[i] = fd_copy;
-    for (char* p = fd_copy ; *p != '\0'  ; p++) {
-        if (*p == ' ') {
-            while (*(p + 1) == ' ') {
-                p++;
-            }
-            *p = '\0';
-            i++;
-            words[i] = p + 1 ;
-        }
-    }
-    
-    for (int i = 0; i < 20; i ++) {
-        
-        if (words[i] == NULL) {
-            break;
-        }
-        char * p_ =  new char (strlen(words[i]));
-        strcpy(p_ , words[i]);
-        words[i] = p_;
-    }
-}
 
 
 int main(int argc, const char * argv[]) {
-//    int hh[10] = {3,1,9,6,0,5,8,4,2,7};
-//    cout << " | ";
-//    for (int i = 0; i < 10; i ++) {
-//        cout << hh[i] << " | ";
-//    }
-//    cout << endl;
-//    NODE* head = create_new_list(hh,10);
-//    show_list(head);
-//    
-//    head =  reverse(head);
-//    show_list(head);
-//    
-//    NODE* xx = get_bit(head,3);
-//    NODE* yy = get_bit(head,7);
-//    swap(xx,yy);
-//    show_list(head);
-//    
-//    delete_node(yy,head);
-//    show_list(head);
+    int hh[10] = {3,1,9,6,0,5,8,4,2,7};
+    NODE* head = create_new_list(hh,10);
+    show_list(head);
+
+    head =  reverse(head);
+    show_list(head);
+
+    NODE* xx = get_bit(head,3);
+    NODE* yy = get_bit(head,7);
+    swap(xx,yy);
+    show_list(head);
     
-//    head = insert_front(head,yy,head);
-//    show_list(head);
-//
-//    head =  insert_sort(head,who_is_big);
-//    show_list(head);
+    delete_node(yy,head);
+    show_list(head);
     
-//    head =  chooise_sort(head,who_is_big);
-//    show_list(head);
+    head = insert_front(head,yy,head);
+    show_list(head);
+
+    head =  insert_sort(head,who_is_big);
+    show_list(head);
     
-//    head = moo_sort(head,who_is_big);
-//    show_list(head);
+    head =  chooise_sort(head,who_is_big);
+    show_list(head);
     
-//    quick_sort(hh, 0, 9);
-//    for (int i =0; i < 10; i ++) {
-//        cout << hh[i] << endl;
-//     }
+    head = moo_sort(head,who_is_big);
+    show_list(head);
     
-//    cout << get_rise(head);
-//    char fd[100];
-//    cin.getline(fd,100);
-//    
-//    char* words[20];
-//    split(words , fd, 100);
-//    
-//    for (int i = 0; i < 20; i ++) {
-//        if (words[i] == NULL) {
-//            break;
-//        }
-//        cout << words[i] << endl;
-//    }
+    quick_sort(hh, 0, 9);
+    for (int i =0; i < 10; i ++) {
+        cout << hh[i] << endl;
+     }
     
-    A* a = new A();
-    A* b = new B();
-    
-    delete a;
-    delete b;
+    cout << get_rise(head);
     
     return 0;
 }
